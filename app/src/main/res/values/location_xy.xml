@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="locationXyArray">
+        <item>60 70</item>
+        <item>55 124</item>
+        <item>58 74</item>
+        <item>89 90</item>
+        <item>67 100</item>
+        <item>98 76</item>
+        <item>102 84</item>
+        <item>66 103</item>
+        <item>60 120</item>
+        <item>73 134</item>
+        <item>69 107</item>
+        <item>68 100</item>
+        <item>63 89</item>
+        <item>51 67</item>
+        <item>89 91</item>
+        <item>91 77</item>
+        <item>52 38</item>
+    </string-array>
+</resources>
