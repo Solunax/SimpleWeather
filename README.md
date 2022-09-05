@@ -14,11 +14,13 @@
 <br>
 
 아래 예시는 날씨가 맑을경우 나타나는 화면
+
 ![sunny](https://user-images.githubusercontent.com/97011241/188402759-22283e34-1598-4bd0-8bb3-c25c3ebd5a39.png)
 
 <br>
 
 아래 사진은 파싱한 데이터의 로그
+
 ![data](https://user-images.githubusercontent.com/97011241/188402794-751ab485-f45d-464c-8a63-c0e44f42b3a3.png)
 
 
