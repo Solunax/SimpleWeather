@@ -1,33 +1,24 @@
 package com.example.simpleweather.viewModel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.simpleweather.api.ApiClient
 import com.example.simpleweather.bindingClass.WeatherClass
 import com.example.simpleweather.repository.WeatherRepository
-import com.example.simpleweather.room.AppDataBase
-import kotlinx.coroutines.CoroutineScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.lang.StringBuilder
+import javax.inject.Inject
 import kotlin.collections.HashMap
 import kotlin.math.floor
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class MainViewModel @Inject constructor(private val repository: WeatherRepository) : ViewModel() {
     private val _weatherResponse : MutableLiveData<WeatherClass> = MutableLiveData()
     private val _recentResponse : MutableLiveData<Int> = MutableLiveData()
-    private val repository : WeatherRepository
     val weatherResponse get() = _weatherResponse
     val recentResponse get() = _recentResponse
-
-    init {
-        repository = WeatherRepository(ApiClient.getApi(ApiClient.getRetrofit()), AppDataBase.getInstance(application))
-
-    }
 
     fun getRecentChoice(){
         viewModelScope.launch(Dispatchers.IO) {

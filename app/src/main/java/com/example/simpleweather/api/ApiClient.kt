@@ -1,15 +1,23 @@
 package com.example.simpleweather.api
 
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
+@Module
+@InstallIn(SingletonComponent::class)
 object ApiClient{
     private const val BASE_URL = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/"
 
-    fun getRetrofit() : Retrofit{
+    @Singleton
+    @Provides
+    fun provideRetrofit() : Retrofit{
         val okhttpClient = OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
@@ -22,7 +30,9 @@ object ApiClient{
             .build()
     }
 
-    fun getApi(retrofit: Retrofit):ApiInterface{
-        return retrofit.create(ApiInterface::class.java)
+    @Singleton
+    @Provides
+    fun provideApi():ApiInterface{
+        return provideRetrofit().create(ApiInterface::class.java)
     }
 }

@@ -14,9 +14,11 @@ import androidx.databinding.DataBindingUtil
 import com.example.simpleweather.bindingClass.WeatherClass
 import com.example.simpleweather.databinding.ActivityMainBinding
 import com.example.simpleweather.viewModel.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val viewModel : MainViewModel by viewModels()
     private val type = "JSON"
